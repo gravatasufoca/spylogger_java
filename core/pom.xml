@@ -42,6 +42,12 @@
             <version>5.0.0.Final</version>
         </dependency>
 
+		<dependency>
+			<groupId>tools.devnull</groupId>
+			<artifactId>trugger</artifactId>
+			<version>6.1.1</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<resources>

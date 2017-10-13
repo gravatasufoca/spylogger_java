@@ -2,6 +2,7 @@ package br.com.gravata.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 /**
  * criado por bruno em 12/10/17.
@@ -17,6 +18,7 @@ public class Usuario extends EntidadeAbstrata{
     private LocalDateTime dataCriacao;
     private Boolean ativo;
     private Boolean master;
+    private Set<Aparelho> aparelhos;
 
     public Usuario() {
     }
@@ -76,6 +78,15 @@ public class Usuario extends EntidadeAbstrata{
         this.master = master;
     }
 
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "usuario")
+    public Set<Aparelho> getAparelhos() {
+        return aparelhos;
+    }
+
+    public void setAparelhos(Set<Aparelho> aparelhos) {
+        this.aparelhos = aparelhos;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -99,4 +110,5 @@ public class Usuario extends EntidadeAbstrata{
         result = 31 * result + (ativo != null ? ativo.hashCode() : 0);
         return result;
     }
+
 }
